@@ -1,14 +1,36 @@
 import sqlite3
 import datetime 
 import os
+import sys
+import pathlib
+from pathlib import Path
 
+
+def check_db(db):
+    if not os.path.isfile(db): return False
+    sz = os.path.getsize(db)
+    print(sz)
+
+#check_db('database.db')
 
 def check_db_exist():
+    
     database = 'database.db'
     percorso = os.getcwd()
+    lista_nuova = []
     lista = os.listdir(percorso)
-    print("files nella directories is '", percorso, "' :")
+    root , extension = os.path.splitext(database)
+    for x in lista: 
+        lista_nuova.append(x)
+        x = pathlib.Path()
+        print(x.suffix)
+        for z in lista_nuova:
+            print(z)
+
+    print("files nella directories is '", database , "' :")
+    
     isExist = os.path.exists(database)
+
    
     if isExist == True:
         print(isExist)
